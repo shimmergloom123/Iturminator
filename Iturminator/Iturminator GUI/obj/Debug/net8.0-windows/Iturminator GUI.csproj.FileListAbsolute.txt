@@ -1,0 +1,17 @@
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\bin\Debug\net8.0-windows\Iturminator GUI.exe
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\bin\Debug\net8.0-windows\Iturminator GUI.deps.json
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\bin\Debug\net8.0-windows\Iturminator GUI.runtimeconfig.json
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\bin\Debug\net8.0-windows\Iturminator GUI.dll
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\bin\Debug\net8.0-windows\Iturminator GUI.pdb
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator_GUI.StartupForm.resources
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator GUI.csproj.GenerateResource.cache
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator GUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator GUI.AssemblyInfoInputs.cache
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator GUI.AssemblyInfo.cs
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator GUI.csproj.CoreCompileInputs.cache
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator GUI.sourcelink.json
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator GUI.dll
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\refint\Iturminator GUI.dll
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator GUI.pdb
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator GUI.genruntimeconfig.cache
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\ref\Iturminator GUI.dll
