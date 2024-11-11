@@ -1,3 +1,5 @@
+using Iturminator.Data;
+
 namespace Iturminator_GUI
 {
     public partial class StartupForm : Form
@@ -17,13 +19,17 @@ namespace Iturminator_GUI
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
+                openFileDialog.Title = "Select Main Excel File";
+
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Display the file path in a TextBox or Label
-                    txtMainFilePath.Text = openFileDialog.FileName;
+                    // Display the selected file path (optional)
+                    //txtMainFilePath.Text = openFileDialog.FileName;
 
-                    // Optionally load the file into a DataTable or perform other actions
-                    LoadMainFile(openFileDialog.FileName);
+                    // Load the main data file into DataManager
+                    DataManager.Instance.LoadMainData(openFileDialog.FileName);
+
+                    MessageBox.Show("Main file loaded successfully.");
                 }
             }
         }
