@@ -15,3 +15,12 @@ C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\n
 C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator GUI.pdb
 C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator GUI.genruntimeconfig.cache
 C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\ref\Iturminator GUI.dll
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\bin\Debug\net8.0-windows\ClosedXML.dll
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\bin\Debug\net8.0-windows\ClosedXML.Parser.dll
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.Framework.dll
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\bin\Debug\net8.0-windows\ExcelNumberFormat.dll
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\bin\Debug\net8.0-windows\RBush.dll
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturminator GUI.csproj.AssemblyReference.cache
+C:\Users\elish\Documents\Git\Iturminator\Iturminator\Iturminator GUI\obj\Debug\net8.0-windows\Iturmina.359BC7A2.Up2Date
