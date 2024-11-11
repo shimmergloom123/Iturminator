@@ -97,6 +97,7 @@ namespace Iturminator_GUI
             // Call DataManager to combine data based on the input columns
             var combinedData = DataManager.Instance.CombineData(mainColumn, enrichingColumn);
             DataManager.Instance.FinalDataTable = combinedData;
+                
         }
     }
 }
