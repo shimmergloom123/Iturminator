@@ -76,6 +76,7 @@
             Controls.Add(dataGridViewData);
             Name = "dataViewForm";
             Text = "dataViewForm";
+            Load += DataViewForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewData).EndInit();
             ResumeLayout(false);
             PerformLayout();

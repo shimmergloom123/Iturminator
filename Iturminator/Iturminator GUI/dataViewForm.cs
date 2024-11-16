@@ -37,7 +37,7 @@ namespace Iturminator_GUI
         private void ConfigureDataGridView()
         {
             // Get the filtered data based on selected columns
-            var filteredTable = DataManager.Instance.MainDataTable.DefaultView.ToTable(false, _selectedAndFrozenColumns.ToArray());
+            var filteredTable = DataManager.Instance.FinalDataTable.DefaultView.ToTable(false, _selectedAndFrozenColumns.ToArray());
             dataGridViewData.DataSource = filteredTable;
 
             // Apply frozen columns
