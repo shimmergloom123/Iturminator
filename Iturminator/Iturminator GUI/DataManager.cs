@@ -13,6 +13,10 @@ namespace Iturminator.Data
         public DataTable EnrichingDataTable { get; set; }
         public DataTable FinalDataTable { get; set; }
 
+        public List<string> HiddenColumns { get; set; }
+        public List<string> SelectedColumns { get; set; }
+        public List<string> FrozenColumns { get; set; }
+
         public DataTable CombineData(string mainColumn, string enrichingColumn)
         {
             // Step 1: Index the EnrichingDataTable based on the enrichingColumn

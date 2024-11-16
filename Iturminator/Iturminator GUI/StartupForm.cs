@@ -20,7 +20,22 @@ namespace Iturminator_GUI
                 listBoxSelected.Items.Add(column.ColumnName); // All columns start as selected
             }
         }
-        
+        private List<string> GetSelectedColumns()
+        {
+            return listBoxSelected.Items.Cast<string>().ToList();
+        }
+
+        private List<string> GetHiddenColumns()
+        {
+            return listBoxHidden.Items.Cast<string>().ToList();
+        }
+
+        private List<string> GetFrozenColumns()
+        {
+            return listBoxFrozen.Items.Cast<string>().ToList();
+        }
+
+
 
         private void main_file_label_Click(object sender, EventArgs e)
         {
@@ -111,6 +126,8 @@ namespace Iturminator_GUI
             var combinedData = DataManager.Instance.CombineData(mainColumn, enrichingColumn);
             DataManager.Instance.FinalDataTable = combinedData;
 
+            //Temporary listboxes call here. Should be removed in the future.
+            PopulateListBoxes(combinedData);
         }
 
         private void btnMoveFrozenToSelected_Click(object sender, EventArgs e)
@@ -151,6 +168,24 @@ namespace Iturminator_GUI
                 listBoxHidden.Items.Remove(columnName);
                 listBoxSelected.Items.Add(columnName);
             }
+        }
+
+        private void btnViewData_Click(object sender, EventArgs e)
+        {
+            // Retrieve the latest column selections
+            var selectedColumns = GetSelectedColumns(); // From the listboxes
+            var frozenColumns = GetFrozenColumns();     // From the listboxes
+            var hiddenColumns = GetHiddenColumns();     // From the listboxes
+
+            DataManager.Instance.SelectedColumns = selectedColumns;
+            DataManager.Instance.HiddenColumns = hiddenColumns;
+            DataManager.Instance.FrozenColumns = frozenColumns;
+
+            // Open DataViewForm with updated parameters
+            var dataViewForm = new dataViewForm(selectedColumns, frozenColumns);
+            this.Hide();
+            dataViewForm.ShowDialog();
+            this.Show();
         }
 
     }

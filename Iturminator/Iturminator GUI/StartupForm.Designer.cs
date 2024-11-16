@@ -44,6 +44,7 @@
             btnMoveSelectedToFrozen = new Button();
             btnMoveSelectedToHidden = new Button();
             btnMoveHiddenToSelected = new Button();
+            btnViewData = new Button();
             SuspendLayout();
             // 
             // main_file_label
@@ -197,11 +198,22 @@
             btnMoveHiddenToSelected.UseVisualStyleBackColor = true;
             btnMoveHiddenToSelected.Click += btnMoveHiddenToSelected_Click;
             // 
+            // btnViewData
+            // 
+            btnViewData.Location = new Point(674, 638);
+            btnViewData.Name = "btnViewData";
+            btnViewData.Size = new Size(150, 46);
+            btnViewData.TabIndex = 16;
+            btnViewData.Text = "view data";
+            btnViewData.UseVisualStyleBackColor = true;
+            btnViewData.Click += btnViewData_Click;
+            // 
             // StartupForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1577, 744);
+            Controls.Add(btnViewData);
             Controls.Add(btnMoveHiddenToSelected);
             Controls.Add(btnMoveSelectedToHidden);
             Controls.Add(btnMoveSelectedToFrozen);
@@ -242,5 +254,6 @@
         private Button btnMoveSelectedToFrozen;
         private Button btnMoveSelectedToHidden;
         private Button btnMoveHiddenToSelected;
+        private Button btnViewData;
     }
 }
