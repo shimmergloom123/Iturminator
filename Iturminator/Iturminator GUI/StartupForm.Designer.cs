@@ -37,6 +37,13 @@
             main_clm_label = new Label();
             rch_clm_label = new Label();
             CombineButton = new Button();
+            listBoxFrozen = new ListBox();
+            listBoxSelected = new ListBox();
+            listBoxHidden = new ListBox();
+            btnMoveFrozenToSelected = new Button();
+            btnMoveSelectedToFrozen = new Button();
+            btnMoveSelectedToHidden = new Button();
+            btnMoveHiddenToSelected = new Button();
             SuspendLayout();
             // 
             // main_file_label
@@ -117,7 +124,7 @@
             // 
             // CombineButton
             // 
-            CombineButton.Location = new Point(710, 320);
+            CombineButton.Location = new Point(727, 268);
             CombineButton.Name = "CombineButton";
             CombineButton.Size = new Size(204, 86);
             CombineButton.TabIndex = 8;
@@ -125,11 +132,83 @@
             CombineButton.UseVisualStyleBackColor = true;
             CombineButton.Click += CombineButton_Click;
             // 
+            // listBoxFrozen
+            // 
+            listBoxFrozen.FormattingEnabled = true;
+            listBoxFrozen.Location = new Point(266, 417);
+            listBoxFrozen.Name = "listBoxFrozen";
+            listBoxFrozen.Size = new Size(240, 164);
+            listBoxFrozen.TabIndex = 9;
+            // 
+            // listBoxSelected
+            // 
+            listBoxSelected.FormattingEnabled = true;
+            listBoxSelected.Location = new Point(674, 417);
+            listBoxSelected.Name = "listBoxSelected";
+            listBoxSelected.Size = new Size(240, 164);
+            listBoxSelected.TabIndex = 10;
+            // 
+            // listBoxHidden
+            // 
+            listBoxHidden.FormattingEnabled = true;
+            listBoxHidden.Location = new Point(1076, 417);
+            listBoxHidden.Name = "listBoxHidden";
+            listBoxHidden.Size = new Size(240, 164);
+            listBoxHidden.TabIndex = 11;
+            // 
+            // btnMoveFrozenToSelected
+            // 
+            btnMoveFrozenToSelected.BackgroundImageLayout = ImageLayout.Stretch;
+            btnMoveFrozenToSelected.Location = new Point(512, 441);
+            btnMoveFrozenToSelected.Name = "btnMoveFrozenToSelected";
+            btnMoveFrozenToSelected.Size = new Size(150, 46);
+            btnMoveFrozenToSelected.TabIndex = 12;
+            btnMoveFrozenToSelected.Text = ">>";
+            btnMoveFrozenToSelected.UseVisualStyleBackColor = true;
+            btnMoveFrozenToSelected.Click += btnMoveFrozenToSelected_Click;
+            // 
+            // btnMoveSelectedToFrozen
+            // 
+            btnMoveSelectedToFrozen.Location = new Point(512, 507);
+            btnMoveSelectedToFrozen.Name = "btnMoveSelectedToFrozen";
+            btnMoveSelectedToFrozen.Size = new Size(150, 46);
+            btnMoveSelectedToFrozen.TabIndex = 13;
+            btnMoveSelectedToFrozen.Text = "<<";
+            btnMoveSelectedToFrozen.UseVisualStyleBackColor = true;
+            btnMoveSelectedToFrozen.Click += btnMoveSelectedToFrozen_Click;
+            // 
+            // btnMoveSelectedToHidden
+            // 
+            btnMoveSelectedToHidden.Location = new Point(920, 441);
+            btnMoveSelectedToHidden.Name = "btnMoveSelectedToHidden";
+            btnMoveSelectedToHidden.Size = new Size(150, 46);
+            btnMoveSelectedToHidden.TabIndex = 14;
+            btnMoveSelectedToHidden.Text = ">>";
+            btnMoveSelectedToHidden.UseVisualStyleBackColor = true;
+            btnMoveSelectedToHidden.Click += btnMoveSelectedToHidden_Click;
+            // 
+            // btnMoveHiddenToSelected
+            // 
+            btnMoveHiddenToSelected.Location = new Point(920, 516);
+            btnMoveHiddenToSelected.Name = "btnMoveHiddenToSelected";
+            btnMoveHiddenToSelected.Size = new Size(150, 46);
+            btnMoveHiddenToSelected.TabIndex = 15;
+            btnMoveHiddenToSelected.Text = "<<";
+            btnMoveHiddenToSelected.UseVisualStyleBackColor = true;
+            btnMoveHiddenToSelected.Click += btnMoveHiddenToSelected_Click;
+            // 
             // StartupForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1577, 744);
+            Controls.Add(btnMoveHiddenToSelected);
+            Controls.Add(btnMoveSelectedToHidden);
+            Controls.Add(btnMoveSelectedToFrozen);
+            Controls.Add(btnMoveFrozenToSelected);
+            Controls.Add(listBoxHidden);
+            Controls.Add(listBoxSelected);
+            Controls.Add(listBoxFrozen);
             Controls.Add(CombineButton);
             Controls.Add(rch_clm_label);
             Controls.Add(main_clm_label);
@@ -156,5 +235,12 @@
         private Label main_clm_label;
         private Label rch_clm_label;
         private Button CombineButton;
+        private ListBox listBoxFrozen;
+        private ListBox listBoxSelected;
+        private ListBox listBoxHidden;
+        private Button btnMoveFrozenToSelected;
+        private Button btnMoveSelectedToFrozen;
+        private Button btnMoveSelectedToHidden;
+        private Button btnMoveHiddenToSelected;
     }
 }

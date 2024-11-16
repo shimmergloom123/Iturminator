@@ -1,4 +1,5 @@
 using Iturminator.Data;
+using System.Data;
 
 namespace Iturminator_GUI
 {
@@ -8,6 +9,18 @@ namespace Iturminator_GUI
         {
             InitializeComponent();
         }
+        private void PopulateListBoxes(DataTable dataTable)
+        {
+            listBoxFrozen.Items.Clear();
+            listBoxSelected.Items.Clear();
+            listBoxHidden.Items.Clear();
+
+            foreach (DataColumn column in dataTable.Columns)
+            {
+                listBoxSelected.Items.Add(column.ColumnName); // All columns start as selected
+            }
+        }
+        
 
         private void main_file_label_Click(object sender, EventArgs e)
         {
@@ -97,7 +110,48 @@ namespace Iturminator_GUI
             // Call DataManager to combine data based on the input columns
             var combinedData = DataManager.Instance.CombineData(mainColumn, enrichingColumn);
             DataManager.Instance.FinalDataTable = combinedData;
-                
+
         }
+
+        private void btnMoveFrozenToSelected_Click(object sender, EventArgs e)
+        {
+            if (listBoxFrozen.SelectedItem != null)
+            {
+                string columnName = listBoxFrozen.SelectedItem.ToString();
+                listBoxFrozen.Items.Remove(columnName);
+                listBoxSelected.Items.Add(columnName);
+            }
+        }
+
+        private void btnMoveSelectedToFrozen_Click(object sender, EventArgs e)
+        {
+            if (listBoxSelected.SelectedItem != null)
+            {
+                string columnName = listBoxSelected.SelectedItem.ToString();
+                listBoxSelected.Items.Remove(columnName);
+                listBoxFrozen.Items.Add(columnName);
+            }
+        }
+
+        private void btnMoveSelectedToHidden_Click(object sender, EventArgs e)
+        {
+            if (listBoxSelected.SelectedItem != null)
+            {
+                string columnName = listBoxSelected.SelectedItem.ToString();
+                listBoxSelected.Items.Remove(columnName);
+                listBoxHidden.Items.Add(columnName);
+            }
+        }
+
+        private void btnMoveHiddenToSelected_Click(object sender, EventArgs e)
+        {
+            if (listBoxHidden.SelectedItem != null)
+            {
+                string columnName = listBoxHidden.SelectedItem.ToString();
+                listBoxHidden.Items.Remove(columnName);
+                listBoxSelected.Items.Add(columnName);
+            }
+        }
+
     }
 }

@@ -109,6 +109,34 @@ namespace Iturminator.Data
             return dataTable;
         }
 
+        public void SaveDataTableToExcel(DataTable dataTable, string filePath)
+        {
+            if (dataTable == null)
+                throw new ArgumentNullException(nameof(dataTable), "DataTable cannot be null.");
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Sheet1");
+
+                // Add column headers
+                for (int i = 0; i < dataTable.Columns.Count; i++)
+                {
+                    worksheet.Cell(1, i + 1).Value = dataTable.Columns[i].ColumnName;
+                }
+
+                // Add rows
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataTable.Columns.Count; j++)
+                    {
+                        worksheet.Cell(i + 2, j + 1).Value = dataTable.Rows[i][j]?.ToString();
+                    }
+                }
+
+                // Save to file
+                workbook.SaveAs(filePath);
+            }
+        }
         private DataManager() { } // Private constructor to prevent instantiation
     }
 }
