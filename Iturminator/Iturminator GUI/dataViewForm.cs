@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,6 +28,7 @@ namespace Iturminator_GUI
             _selectedAndFrozenColumns = selectedColumns
                 .Union(frozenColumns)
                 .ToList();
+
         }
 
         private void DataViewForm_Load(object sender, EventArgs e)
@@ -36,19 +38,31 @@ namespace Iturminator_GUI
 
         private void ConfigureDataGridView()
         {
+            
+
             // Get the filtered data based on selected columns
             var filteredTable = DataManager.Instance.FinalDataTable.DefaultView.ToTable(false, _selectedAndFrozenColumns.ToArray());
             dataGridViewData.DataSource = filteredTable;
 
+            
+
+            int displayIndex = 0;
             // Apply frozen columns
             foreach (var columnName in _frozenColumns)
             {
                 if (dataGridViewData.Columns[columnName] != null)
                 {
-                    dataGridViewData.Columns[columnName].Frozen = true;
+                    var column = dataGridViewData.Columns[columnName];
+                    column.Frozen = true;
+                    column.DisplayIndex = displayIndex++; // Increment display index for each frozen column
+                    column.Width = 150; // Ensure reasonable width
                 }
             }
+            dataGridViewData.ScrollBars = ScrollBars.Both;
+            
         }
+
+
 
         private void syncDataManager()
         {
@@ -108,4 +122,20 @@ namespace Iturminator_GUI
         }
 
     }
+
+    public class CustomDataGridView : DataGridView
+    {
+        protected override void OnLayout(LayoutEventArgs e)
+        {
+            base.OnLayout(e);
+
+            // Force the horizontal scrollbar to be visible
+            if (this.HorizontalScrollBar.Visible == false)
+            {
+                this.HorizontalScrollBar.Visible = true;
+            }
+        }
+    }
+
+
 }

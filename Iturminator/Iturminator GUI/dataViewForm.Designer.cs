@@ -36,13 +36,12 @@
             // 
             // dataGridViewData
             // 
-            dataGridViewData.AllowUserToOrderColumns = true;
             dataGridViewData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewData.Dock = DockStyle.Bottom;
-            dataGridViewData.Location = new Point(0, 74);
+            dataGridViewData.Location = new Point(0, 136);
             dataGridViewData.Name = "dataGridViewData";
             dataGridViewData.RowHeadersWidth = 82;
-            dataGridViewData.Size = new Size(1588, 730);
+            dataGridViewData.Size = new Size(1588, 668);
             dataGridViewData.TabIndex = 0;
             dataGridViewData.CellContentClick += dataGridViewData_CellContentClick;
             // 
