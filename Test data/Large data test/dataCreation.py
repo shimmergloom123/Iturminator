@@ -14,8 +14,9 @@ def generate_random_hebrew_text(length=10):
 # Function to generate a row of random data
 def generate_random_row(row_id):
     row = [row_id]  # First column is the ID
-    for _ in range(99):  # Next 99 columns
-        choice = random.choice(["number", "english", "hebrew"])
+    for _ in range(29):  # Next 99 columns
+        #choice = random.choice(["number", "english", "hebrew"])
+        choice = random.choice(["number", "english"])
         if choice == "number":
             row.append(random.randint(1, 10000))  # Random integer
         elif choice == "english":
@@ -27,7 +28,7 @@ def generate_random_row(row_id):
 # Generate a large DataFrame
 def generate_large_excel_file(row_count, file_name):
     print(f"Generating {row_count} rows of data...")
-    column_names = ["ID"] + [f"Column_{i}" for i in range(1, 100)]
+    column_names = ["ID"] + [f"Column_{i}" for i in range(1, 30)]
     data = [generate_random_row(row_id) for row_id in range(1, row_count + 1)]
 
     # Create a DataFrame
@@ -39,4 +40,4 @@ def generate_large_excel_file(row_count, file_name):
     print(f"File {file_name} created successfully!")
 
 # Generate a file with 3000 rows
-generate_large_excel_file(10000, "large enriching.xlsx")
+generate_large_excel_file(300, "english enriching.xlsx")
