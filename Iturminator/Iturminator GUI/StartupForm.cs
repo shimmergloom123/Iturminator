@@ -35,6 +35,16 @@ namespace Iturminator_GUI
             return listBoxFrozen.Items.Cast<string>().ToList();
         }
 
+        public void RefreshHiddenColumnsList()
+        {
+            // Assuming listBoxHidden is the ListBox for hidden columns
+            listBoxHidden.Items.Clear();
+            listBoxHidden.Refresh();
+
+
+            // Optionally, add a message or placeholder if needed
+            //listBoxHidden.Items.Add("No hidden columns available.");
+        }
 
 
         private void main_file_label_Click(object sender, EventArgs e)
@@ -183,6 +193,7 @@ namespace Iturminator_GUI
 
             // Open DataViewForm with updated parameters
             var dataViewForm = new dataViewForm(selectedColumns, frozenColumns);
+            dataViewForm.Owner = this;
             this.Hide();
             dataViewForm.ShowDialog();
             this.Show();

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Iturminator GUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5abcbc1c66c0a159172dcf8c556143278abc271")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+edab0ae76bed51ec6fe16aac118d71fc02cc913f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Iturminator GUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Iturminator GUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
