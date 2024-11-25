@@ -121,7 +121,7 @@
             Controls.Add(panel1);
             Name = "dataViewForm";
             Text = "dataViewForm";
-            Load += DataViewForm_Load;
+            //Load += DataViewForm_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();

@@ -16,6 +16,7 @@ namespace Iturminator_GUI
     {
         private readonly List<string> _frozenColumns;
         private readonly List<string> _selectedColumns;
+        private readonly Dictionary<string, bool> _columnSortStates = new Dictionary<string, bool>();
 
 
         public dataViewForm(List<string> selectedColumns, List<string> frozenColumns)
@@ -317,6 +318,7 @@ namespace Iturminator_GUI
         private void DataGridView_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var grid = sender as DataGridView;
+
             if (grid != null)
             {
                 // Get the column name
@@ -324,24 +326,52 @@ namespace Iturminator_GUI
 
                 // Determine the sort order (toggle ascending/descending)
                 bool ascending = true;
-                if (grid.Tag != null && grid.Tag.ToString() == columnName)
+
+                if (_columnSortStates.ContainsKey(columnName))
                 {
-                    // If already sorting by this column, toggle the order
-                    ascending = false;
-                    grid.Tag = null; // Clear the tag for next click
+                    // Toggle the sorting direction
+                    ascending = !_columnSortStates[columnName];
+                }
+
+                // Update the sorting state for the column
+                _columnSortStates[columnName] = ascending;
+
+                // Perform sorting
+                SortByColumn(columnName, ascending);
+
+                // Update the sort glyph for both grids
+                UpdateSortGlyph(grid, e.ColumnIndex, ascending); // Update clicked grid
+                if (grid == dataGridViewMain)
+                {
+                    UpdateSortGlyph(dataGridViewFrozen, e.ColumnIndex, ascending); // Update frozen grid
                 }
                 else
                 {
-                    grid.Tag = columnName; // Store column name in tag
+                    UpdateSortGlyph(dataGridViewMain, e.ColumnIndex, ascending); // Update main grid
                 }
-
-                // Call the custom sort function
-                SortByColumn(columnName, ascending);
-
-                // Rebind the grids
-                RebindGrids();
             }
         }
+
+
+
+
+        private void UpdateSortGlyph(DataGridView grid, int columnIndex, bool ascending)
+        {
+            // Check if the column index exists in the grid
+            if (columnIndex >= 0 && columnIndex < grid.Columns.Count)
+            {
+                // Clear existing sort glyphs for all columns
+                foreach (DataGridViewColumn column in grid.Columns)
+                {
+                    column.HeaderCell.SortGlyphDirection = SortOrder.None;
+                }
+
+                // Set the glyph for the sorted column
+                grid.Columns[columnIndex].HeaderCell.SortGlyphDirection = ascending ? SortOrder.Ascending : SortOrder.Descending;
+            }
+        }
+
+
 
 
         private void SortByColumn(string columnName, bool ascending)
