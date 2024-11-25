@@ -34,6 +34,7 @@
             dataGridViewMain = new DataGridView();
             dataGridViewFrozen = new DataGridView();
             panel1 = new Panel();
+            btnAdjustRowHeight = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -104,6 +105,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnAdjustRowHeight);
             panel1.Controls.Add(chkSaveHiddenData);
             panel1.Controls.Add(btnBackToStartup);
             panel1.Dock = DockStyle.Top;
@@ -111,6 +113,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1588, 98);
             panel1.TabIndex = 4;
+            // 
+            // btnAdjustRowHeight
+            // 
+            btnAdjustRowHeight.Location = new Point(614, 27);
+            btnAdjustRowHeight.Name = "btnAdjustRowHeight";
+            btnAdjustRowHeight.Size = new Size(150, 46);
+            btnAdjustRowHeight.TabIndex = 3;
+            btnAdjustRowHeight.Text = "Adjust Rows";
+            btnAdjustRowHeight.UseVisualStyleBackColor = true;
+            btnAdjustRowHeight.Click += btnAdjustRowHeight_Click;
             // 
             // dataViewForm
             // 
@@ -121,7 +133,6 @@
             Controls.Add(panel1);
             Name = "dataViewForm";
             Text = "dataViewForm";
-            //Load += DataViewForm_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -140,5 +151,6 @@
         private DataGridView dataGridViewMain;
         private DataGridView dataGridViewFrozen;
         private Panel panel1;
+        private Button btnAdjustRowHeight;
     }
 }

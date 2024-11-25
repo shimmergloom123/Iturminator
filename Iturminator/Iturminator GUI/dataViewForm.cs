@@ -418,6 +418,96 @@ namespace Iturminator_GUI
             var scrollableTable = DataManager.Instance.FinalDataTable.DefaultView.ToTable(false, scrollableColumns.ToArray());
             dataGridViewMain.DataSource = scrollableTable;
         }
+        private void EnableCellWrapping(DataGridView grid)
+        {
+            foreach (DataGridViewColumn column in grid.Columns)
+            {
+                column.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+
+            // Force a refresh to apply changes
+            grid.Refresh();
+        }
+
+
+        private void btnAdjustRowHeight_Click(object sender, EventArgs e)
+        {
+            EnableCellWrapping(dataGridViewMain);
+            EnableCellWrapping(dataGridViewFrozen);
+
+            // Adjust row heights for both grids
+            AdjustRowHeights(dataGridViewMain);
+            AdjustRowHeights(dataGridViewFrozen);
+
+            // Sync row heights between the two grids
+            SyncRowHeights();
+
+            EnableCellWrapping(dataGridViewMain);
+            EnableCellWrapping(dataGridViewFrozen);
+        }
+
+        private void AdjustRowHeights(DataGridView grid)
+        {
+            using (Graphics graphics = grid.CreateGraphics())
+            {
+                foreach (DataGridViewRow row in grid.Rows)
+                {
+                    // Get the default font for the grid or fallback to a standard font
+                    Font font = row.DefaultCellStyle.Font ?? grid.DefaultCellStyle.Font ?? Control.DefaultFont;
+
+                    int maxHeight = font.Height;
+
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value != null)
+                        {
+                            string cellValue = cell.Value.ToString();
+
+                            // Measure the size of the text in the cell
+                            SizeF textSize = graphics.MeasureString(
+                                cellValue,
+                                cell.InheritedStyle.Font ?? font, // Use the inherited or fallback font
+                                cell.InheritedStyle.WrapMode == DataGridViewTriState.True
+                                    ? cell.Size.Width
+                                    : int.MaxValue
+                            );
+
+                            // Add padding and calculate the maximum height
+                            int cellHeight = (int)Math.Ceiling(textSize.Height) +
+                                             cell.InheritedStyle.Padding.Top +
+                                             cell.InheritedStyle.Padding.Bottom;
+
+                            maxHeight = Math.Max(maxHeight, cellHeight);
+                        }
+                    }
+
+                    // Set the row height to the maximum height required
+                    row.Height = maxHeight;
+                }
+            }
+        }
+
+
+
+        private void SyncRowHeights()
+        {
+            // Ensure row counts match (for proper synchronization)
+            if (dataGridViewMain.Rows.Count == dataGridViewFrozen.Rows.Count)
+            {
+                for (int i = 0; i < dataGridViewMain.Rows.Count; i++)
+                {
+                    // Get the maximum height of the corresponding rows
+                    int maxHeight = Math.Max(dataGridViewMain.Rows[i].Height, dataGridViewFrozen.Rows[i].Height);
+
+                    // Apply the maximum height to both grids
+                    dataGridViewMain.Rows[i].Height = maxHeight;
+                    dataGridViewFrozen.Rows[i].Height = maxHeight;
+                }
+            }
+            // Optionally refresh the grid to apply changes
+            dataGridViewMain.Refresh();
+            dataGridViewFrozen.Refresh();
+        }
 
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
